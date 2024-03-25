@@ -1,0 +1,20 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: WebClient
+
+api:
+  scheduling:
+    basicUri: http://localhost:8080/scheduling/api
+  product:
+    basicUri: http://localhost:8080/product/api
+  produce:
+    basicUri: http://localhost:8080/produce/api
+  report:
+    basicUri: http://localhost:8080/dataservice/api
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

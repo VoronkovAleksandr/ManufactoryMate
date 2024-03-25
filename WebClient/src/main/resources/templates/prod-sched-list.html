@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="~{template :: header (pageTitle='produce list')}"></head>
+<body>
+
+<h1 class="center" align="center" th:text="${text}"></h1>
+<hr/>
+<p><a th:href="@{${href} + '/add'}">Добавить</a></p>
+<table class="table table-striped table-hover">
+    <thead>
+    <tr class="table-secondary">
+        <th>Дата</th>
+        <th>Наименование изделия</th>
+        <th>Количество</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${items}">
+        <td th:text="${item.date}"></td>
+        <td th:text="${item.title}"></td>
+        <td th:text="${item.quantity}"></td>
+        <td><a th:href="@{${href} + '/'+ ${item.id}}">Редактировать</a>   <a th:href="@{${href} +'/delete/'+ ${item.id}}">Удалить</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

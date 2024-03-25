@@ -1,0 +1,2 @@
+docker buildx build -t eureka-server:0.0.1 .
+docker run -p 8761:8761 --name eureka-server --network manufactory-mate_default eureka-server:0.0.1

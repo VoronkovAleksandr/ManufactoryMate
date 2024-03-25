@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="~{template :: header (pageTitle='add product')}"></head>
+<body>
+
+<h1 class="center" align="center" th:text="${text}"></h1>
+<hr/>
+
+<form action="#" th:action="@{'/' + ${href}}" th:object="${item}" method="post">
+    <label for="date">Дата: </label><br/>
+    <input type="date" th:value="${date}" th:field="*{date}" id="date" required><br/>
+    <label for="productId">Изделие: </label><br/>
+    <select th:field="*{productId}" id="productId" required>
+        <option th:each="product : ${products}" th:value="${product.id}" th:text="${product.title}"></option>
+    </select>
+    <br/>
+    <label for="quantity">Изделие: </label><br/>
+    <input type="text" th:field="*{quantity}" id="quantity" placeholder="Количество" required><br/>
+    <input type="submit" value="Добавить">
+</form>
+
+</body>
+</html>

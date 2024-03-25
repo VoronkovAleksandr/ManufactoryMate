@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:insert="~{template :: header (pageTitle='report')}"></head>
+<body>
+<h1 class="center" align="center">Отчет</h1>
+<h1 class="center" align="center" th:text="${dateForm.date}"></h1>
+<form action="#" th:action="@{'/report'}" th:object="${dateForm}"  method="post">
+    <label for="date">Выберите дату: </label>
+    <input type="date"  id="date" th:field="*{date}" th:value="${#temporals.format(dateForm.date, 'dd-MM-yyyy')}" required/>
+    <input type="submit" value="Показать">
+</form>
+<hr/>
+<div class="center" align="center" th:switch="${reports.size}">
+    <h2 th:case="0"> Нет данных на выбранную дату</h2>
+    <div th:case="*">
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr class="table-secondary">
+                <th>Изделие</th>
+                <th>Запланировано произвести</th>
+                <th>Произведено</th>
+                <th>Процент выполнения</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="report : ${reports}">
+                <td th:text="${report.productTitle}"></td>
+                <td th:text="${report.schedulingQuantity}"></td>
+                <td th:text="${report.produceQuantity}"></td>
+                <td th:text="${report.percent}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

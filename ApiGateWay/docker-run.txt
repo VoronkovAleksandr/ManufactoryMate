@@ -1,0 +1,2 @@
+docker buildx build -t api-gateway:0.0.1 .
+docker run -p 8080:80 --name api-gateway --network manufactory-mate_default api-gateway:0.0.1
