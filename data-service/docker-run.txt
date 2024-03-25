@@ -1,0 +1,3 @@
+docker buildx build -t data-service:0.0.1 .
+docker run -p 8088:80 --name data-service --network manufactory-mate_default data-service:0.0.1
+docker run --name data-service --network manufactory-mate_default data-service:0.0.1

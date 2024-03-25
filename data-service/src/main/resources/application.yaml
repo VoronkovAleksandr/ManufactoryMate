@@ -1,0 +1,17 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: Data-Service-Server
+api:
+  scheduling:
+    basicUri: http://scheduling-server:80/api
+  product:
+    basicUri: http://product-server:80/api
+  produce:
+    basicUri: http://produce-server:80/api
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
