@@ -1,0 +1,18 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: Produce-Server
+  datasource:
+    url: jdbc:mysql://localhost:3311/manufactorymate
+    username: user_spring
+    password: spring123
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka/
